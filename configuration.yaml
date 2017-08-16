@@ -57,5 +57,19 @@ sensor:
 tts:
   - platform: google
 
+zone:
+  name: Home
+  latitude: 37.686679
+  longitude: -121.772034
+  radius: 250
+  icon: mdi:home
+
+zone 2:
+  name: Work
+  latitude: 37.790533
+  longitude: -122.397181
+  radius: 250
+  icon: mdi:office
+
 group: !include groups.yaml
 automation: !include automations.yaml
