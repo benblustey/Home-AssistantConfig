@@ -1,0 +1,16 @@
+  security:
+    view: yes
+    name: Security
+    entities:
+      - group.cameras_front
+      - group.cameras_back
+  cameras_back:
+    name: Back Cameras
+    entities:
+      - camera.backyard
+      - camera.side_driveway
+  cameras_front:
+    name: Front Cameras
+    entities:
+      - camera.front_porch
+      - camera.front_driveway

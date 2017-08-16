@@ -71,5 +71,29 @@ zone 2:
   radius: 250
   icon: mdi:office
 
+# Cameras
+camera:
+  - platform: generic
+    name: Front Porch
+    username: admin
+    password: !secret camera01
+    still_image_url: http://192.168.1.101/Streaming/channels/1/picture
+  - platform: generic
+    name: Front Driveway
+    username: admin
+    password: !secret camera02
+    still_image_url: http://192.168.1.102/Streaming/channels/1/picture
+  - platform: generic
+    name: Backyard
+    username: admin
+    password: !secret camera03
+    still_image_url: http://192.168.1.103/Streaming/channels/1/picture
+  - platform: generic
+    name: Side Driveway
+    username: admin
+    password: !secret camera04
+    still_image_url: http://192.168.1.104/Streaming/channels/1/picture
+
 group: !include groups.yaml
+group: !include secrets.yaml
 automation: !include automations.yaml
