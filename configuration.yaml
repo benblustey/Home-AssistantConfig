@@ -52,6 +52,23 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+  - platform: template
+    sensors:
+      pihole_queries_today:
+        value_template: sensor.pihole_dns_queries_today
+        friendly_name: 'Queries Today'
+      pihole_percentage_today:
+        value_template: sensor.pihole_ads_percentage_blocked_today
+        friendly_name: 'Percentage Today'
+      pihole_domains_blocked:
+        value_template: sensor.pihole_ads_percentage_blocked_today
+        friendly_name: 'ADs Blocked Today'
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: memory_use
 
 # Text to speech
 tts:

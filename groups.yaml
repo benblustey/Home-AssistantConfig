@@ -14,3 +14,21 @@
     entities:
       - camera.front_porch
       - camera.front_driveway
+  technology:
+    view: yes
+    name: Technology
+    entities:
+      - group.pihole
+      - group.raspi
+  raspi:
+    name: 'System Stats'
+    entities:
+      - sensor.ram_free
+      - sensor.ram_use
+      - sensor.disk_use_home
+  pihole:
+    name: 'Pi-Hole'
+    entities:
+      - sensor.pihole_dns_queries_today
+      - sensor.pihole_ads_blocked_today
+      - sensor.pihole_ads_percentage_blocked_today
