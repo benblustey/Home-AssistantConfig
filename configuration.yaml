@@ -95,5 +95,4 @@ camera:
     still_image_url: http://192.168.1.104/Streaming/channels/1/picture
 
 group: !include groups.yaml
-secrets: !include secrets.yaml
 automation: !include automations.yaml
