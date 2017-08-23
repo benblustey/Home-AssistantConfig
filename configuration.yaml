@@ -12,7 +12,7 @@ homeassistant:
   time_zone: America/Los_Angeles
 
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
@@ -49,26 +49,32 @@ logbook:
 # Track the sun
 sun:
 
+# customize:
+#  sensor.pihole_dns_queries_cached:
+#    hidden: true
+#  sensor.pihole_dns_queries_forwarded
+#    hidden: true
+
 # Weather prediction
 sensor:
   - platform: yr
-  - platform: template
-    sensors:
-      pihole_queries_today:
-        value_template: sensor.pihole_dns_queries_today
-        friendly_name: 'Queries Today'
-      pihole_percentage_today:
-        value_template: sensor.pihole_ads_percentage_blocked_today
-        friendly_name: 'Percentage Today'
-      pihole_domains_blocked:
-        value_template: sensor.pihole_ads_percentage_blocked_today
-        friendly_name: 'ADs Blocked Today'
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
         arg: /home
       - type: memory_free
       - type: memory_use
+  - platform: pi_hole
+    sensors:
+      pihole_queries_today:
+        value_template: '{{ states.sensor.pihole.attributes.queries_today }}'
+        friendly_name: 'Queries Today'
+      pihole_percentage_today:
+        value_template: '{{ states.sensor.pihole.attributes.percentage_today }}'
+        friendly_name: 'Percentage Today'
+      pihole_domains_blocked:
+        value_template: '{{ states.sensor.pihole.attributes.domains_blocked }}'
+        friendly_name: 'Domains Blocked'
 
 # Text to speech
 tts:
@@ -95,11 +101,11 @@ camera:
     username: admin
     password: !secret camera01
     still_image_url: http://192.168.1.101/Streaming/channels/1/picture
-  - platform: generic
-    name: Front Driveway
-    username: admin
-    password: !secret camera02
-    still_image_url: http://192.168.1.102/Streaming/channels/1/picture
+#  - platform: generic
+#    name: Front Driveway
+#    username: admin
+#    password: !secret camera02
+#    still_image_url: http://192.168.1.102/Streaming/channels/1/picture
   - platform: generic
     name: Backyard
     username: admin

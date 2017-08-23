@@ -13,7 +13,7 @@
     name: Front Cameras
     entities:
       - camera.front_porch
-      - camera.front_driveway
+#      - camera.front_driveway
   technology:
     view: yes
     name: Technology
